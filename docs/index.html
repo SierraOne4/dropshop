@@ -65,9 +65,12 @@
     </div>
   <script type="text/javascript">
     var jbScanner;
+    var prevScan ="";
     function onQRCodeScanned(scannedText)
     {
-      console.log(jbScanner.isActive());
+      if (scannedText==prevScan) return;
+            console.log(scannedText);
+
     	var scannedTextMemo = document.getElementById("scannedTextMemo");
     	if(scannedTextMemo)
     	{
@@ -145,11 +148,7 @@
     	}        
     }
     
-    function disableScanner() {
-     jbScanner.stopScanning();
-      console.log(jbScanner.isActive());
-     document.getElementById("scanner").style.visibility="hidden"; 
-    }
+  
   </script>    
   </body>
 </html>
