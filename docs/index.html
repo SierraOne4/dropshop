@@ -93,8 +93,8 @@
      alert(httpRequest); 
     }
     function urlBuilder(swyftUrl) {
-     swyftUrl = swyftUrl.match(/(?<=sys:swyft&track:).*(?=&org)/); 
-      
+     //swyftUrl = swyftUrl.match(/(?<=sys:swyft&track:).*(?=&org)/); 
+      //just use raw for now, we don't have proper QR codes.
      return "https://script.google.com/macros/s/AKfycbwLjD2nxs62zkaLQz7PV51TrriftHY_U3uM99WUJei4uHoDx2AV/exec?action=scan_in&ssid="+ssid+"&track="+swyftUrl+"&prefix=alert";
     }
     function provideVideo()
