@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="JsQRScanner.css">
     <title>Dropshop QR Scanner Demo v0.1</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="jsPretty/jsqrscanner.nocache.js"></script>
   </head>
 
@@ -158,15 +158,14 @@
     function disableScanner() {
      jbScanner.stopScanning(); 
     }
-    function httpGetAsync(theUrl, callback)
+    function httpGetAsync(theUrl,data, callback)
 {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
+   $.ajax({
+  type: "POST",
+  url: theUrl,
+  data: data,
+  success: callback
+});
 }
   
   </script>    
