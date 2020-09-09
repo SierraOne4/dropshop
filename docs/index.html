@@ -68,6 +68,7 @@
     function onQRCodeScanned(scannedText)
     {
       jbScanner.stopScanning();
+      alert(jbScanner.isActive());
     	var scannedTextMemo = document.getElementById("scannedTextMemo");
     	if(scannedTextMemo)
     	{
