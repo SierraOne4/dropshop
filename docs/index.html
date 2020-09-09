@@ -65,6 +65,7 @@
     </div>
   <script type="text/javascript">
     var jbScanner;
+    var ssid = "101NT2Zf3DH6rl9N7iOsJHQ7N_UX_E5EabUP5jjynqEY";
     var prevScan ="";
     function onQRCodeScanned(scannedText)
     {
@@ -83,9 +84,14 @@
     		scannedTextMemoHist.value = urlBuilder(scannedText);
     	}
             disableScanner();
+            httpGetAsync(scannedTextMemoHist.value,showStatus);
+    }
+    function showStatus(httpRequest) {
+     alert(httpRequest); 
     }
     function urlBuilder(swyftUrl) {
-     return swyftUrl; 
+     swyftUrl = swyftUrl.match(/(?<=sys:swyft&track:).*(?=&org)/); 
+     return "https://script.google.com/a/sierra.one/macros/s/AKfycbwLjD2nxs62zkaLQz7PV51TrriftHY_U3uM99WUJei4uHoDx2AV/exec?action=scan_in&ssid="+ssid+"&track="+swyftUrl;
     }
     function provideVideo()
     {
@@ -148,7 +154,19 @@
     		jbScanner.appendTo(scannerParentElement);
     	}        
     }
-    
+    function disableScanner() {
+     jbScanner.stopScanning(); 
+    }
+    function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
   
   </script>    
   </body>
