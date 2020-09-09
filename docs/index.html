@@ -68,7 +68,7 @@
     function onQRCodeScanned(scannedText)
     {
       jbScanner.stopScanning();
-      alert(jbScanner.isActive());
+      disableCamera();
     	var scannedTextMemo = document.getElementById("scannedTextMemo");
     	if(scannedTextMemo)
     	{
@@ -143,6 +143,10 @@
     	    //append the jbScanner to an existing DOM element
     		jbScanner.appendTo(scannerParentElement);
     	}        
+    }
+    
+    function disableScanner() {
+     document.getElementById("scanner").style.visibility="hidden"; 
     }
   </script>    
   </body>
