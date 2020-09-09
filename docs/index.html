@@ -69,6 +69,7 @@
     function onQRCodeScanned(scannedText)
     {
       if (scannedText==prevScan) return;
+      prevScan = scannedText;
             console.log(scannedText);
 
     	var scannedTextMemo = document.getElementById("scannedTextMemo");
