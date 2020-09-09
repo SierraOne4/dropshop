@@ -68,7 +68,6 @@
     function onQRCodeScanned(scannedText)
     {
       console.log(jbScanner.isActive());
-      disableCamera();
     	var scannedTextMemo = document.getElementById("scannedTextMemo");
     	if(scannedTextMemo)
     	{
@@ -79,6 +78,7 @@
     	{
     		scannedTextMemoHist.value = urlBuilder(scannedText);
     	}
+            disableCamera();
     }
     function urlBuilder(swyftUrl) {
      return swyftUrl; 
