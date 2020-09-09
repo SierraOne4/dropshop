@@ -84,7 +84,7 @@
     		scannedTextMemoHist.value = urlBuilder(scannedText);
     	}
             disableScanner();
-            httpGetAsync(scannedTextMemoHist.value,showStatus);
+            httpGetAsync(scannedTextMemoHist.value,"action=scan_in&ssid="+ssid+"&track="+scannedText,showStatus);
     }
     function showStatus(httpRequest) {
      alert(httpRequest); 
@@ -92,7 +92,7 @@
     function urlBuilder(swyftUrl) {
      swyftUrl = swyftUrl.match(/(?<=sys:swyft&track:).*(?=&org)/); 
       
-     return "https://script.google.com/macros/s/AKfycbwLjD2nxs62zkaLQz7PV51TrriftHY_U3uM99WUJei4uHoDx2AV/exec?action=scan_in&ssid="+ssid+"&track="+swyftUrl;
+     return "https://script.google.com/macros/s/AKfycbwLjD2nxs62zkaLQz7PV51TrriftHY_U3uM99WUJei4uHoDx2AV/exec;
     }
     function provideVideo()
     {
