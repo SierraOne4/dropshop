@@ -68,7 +68,7 @@
     function onQRCodeScanned(scannedText)
     {
       console.log(jbScanner.isActive());
-      //disableCamera();
+      disableCamera();
     	var scannedTextMemo = document.getElementById("scannedTextMemo");
     	if(scannedTextMemo)
     	{
@@ -147,6 +147,7 @@
     
     function disableScanner() {
      jbScanner.stopScanning();
+      console.log(jbScanner.isActive());
      //document.getElementById("scanner").style.visibility="hidden"; 
     }
   </script>    
