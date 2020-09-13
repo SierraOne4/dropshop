@@ -2,9 +2,11 @@
 <head>
 <script src="qr-scanner.umd.min.js"></script>
 <script type="text/javascript">
+window.onload =  function() {
 var videoElem = document.getElementById("videoElem");
 const qrScanner = new QrScanner(videoElem,result=>console.log("QR Code Result:",result));
-
+qrScanner.start();
+}
 </script>
 </head>
 <body>
