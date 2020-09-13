@@ -1,7 +1,17 @@
 <html>
 <head>
+<script type="text/javascript" src="qr-scanner.min.js"></script>
+<script type="text/javascript">
+var videoElem = document.getElementById("videoElem");
+const qrScanner = new QrScanner(videoElem,result=>console.log("QR Code Result:",result));
+window.onload = function () {
+qrScanner.start();
+
+}
+</script>
 </head>
 <body>
 TEST
+<video id="videoElem"></video>
 </body>
 </html>
